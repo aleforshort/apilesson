@@ -5,12 +5,17 @@ $(function(){
 	$("button").on("click",".submit",function(event){
 	event.preventDefault();
 	var userInput = $("query").val();
+	getRequest(searchTerm);
+   });
+  });
+
+function getRequest(searchTerm){
   	$.getJSON('http://www.omdbapi.com/?s=Star%20Wars&r=json', function(data){
 	 
 	 showResults(data.Search);
-    });
-  });
 });
+ 
+}
 
 
 function showResults(results){
